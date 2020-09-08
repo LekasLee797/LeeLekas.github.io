@@ -1,17 +1,16 @@
-// classList - shows/gets all classes
-// contains - checks classList for specific class
-// add - add class
-// remove - remove class
-// toggle - toggles class
+const toggleBtn = document.querySelector(".sidebar-toggle");
+const closeBtn = document.querySelector(".close-btn");
+const sidebar = document.querySelector(".sidebar");
 
-const navToggle = document.querySelector(".nav-toggle");
-const links = document.querySelector(".links");
-
-navToggle.addEventListener("click", function(){
-if(links.classList.contains("show-links")){
- links.classList.remove("show-links")
+toggleBtn.addEventListener("click", function(){
+if(sidebar.classList.contains("show-sidebar")){
+    sidebar.classList.remove("show-sidebar");
 }
-else {
-    links.classList.add("show-links");
+else{
+    sidebar.classList.add("show-sidebar");
 }
 });
+
+closeBtn.addEventListener("click", function (){
+    sidebar.classListlassList.remove("show-sidebar");
+})
