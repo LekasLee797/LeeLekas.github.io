@@ -1,17 +1,31 @@
-// select modal-btn,modal-overlay,close-btn
-// listen for click events on modal-btn and close-btn
-// when user clicks modal-btn add .open-modal to modal-overlay
-// when user clicks close-btn remove .open-modal from modal-overlay
+// set initial count
+let count = 0;
 
-const modalBtn = document.querySelector(".modal-btn");
-const modal = document.querySelector(".modal-overlay");
-const closeBtn = document.querySelector(".close-btn"); 
+// select value and buttons
+const value = document.querySelector("#value");
+const btns = document.querySelectorAll(".btn");
 
-modalBtn.addEventListener("click", function () {
-modal.classList.add("open-modal");
+btns.forEach(function (btn) {
+btn.addEventListener("click", function (e) {
+const styles = e.currentTarget.classList;
+if (styles.contains('decrease')) {
+   count--; 
+}
+else if(styles.contains("increase")) {
+    count++;
+}
+else {
+    count = 0;
+}
+if(count > 0){
+    value.style.color = "green";
+}
+if (count < 0){
+    value.style.color = "red"
+}
+if(count === 0){
+    value.style.color = "#222"
+}
+value.textContent = count;
+})
 });
-
-closeBtn.addEventListener("click", function () {
-    modal.classList.remove("open-modal");
-    });
-
